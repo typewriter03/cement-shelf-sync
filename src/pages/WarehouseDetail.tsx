@@ -14,6 +14,10 @@ export default function WarehouseDetail({
   inventory, 
   onBack 
 }: WarehouseDetailProps) {
+  const handleEditItem = (item: InventoryItem) => {
+    // TODO: Implement edit functionality
+    console.log("Edit item:", item);
+  };
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -55,7 +59,8 @@ export default function WarehouseDetail({
       <main className="container mx-auto px-4 py-8">
         <InventoryTable 
           items={inventory} 
-          warehouseName={warehouse.name} 
+          warehouseName={warehouse.name}
+          onEditItem={handleEditItem}
         />
       </main>
     </div>
