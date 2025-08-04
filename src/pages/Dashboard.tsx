@@ -30,7 +30,7 @@ export default function Dashboard({
             <div className="flex items-center gap-2">
               <Button variant="outline" size="sm">
                 <Plus className="h-4 w-4 mr-2" />
-                Add Warehouse
+                Add Godown
               </Button>
               <Button 
                 variant="outline" 
@@ -50,10 +50,10 @@ export default function Dashboard({
       <main className="container mx-auto px-4 py-8">
         <div className="mb-6">
           <h2 className="text-xl font-semibold text-cement-dark mb-2">
-            Warehouse Overview
+            Godown Overview
           </h2>
           <p className="text-cement">
-            Manage your cement inventory across {warehouses.length} warehouses
+            Manage your cement inventory across {warehouses.length} godowns
           </p>
         </div>
 
@@ -70,10 +70,10 @@ export default function Dashboard({
 
         {warehouses.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-cement mb-4">No warehouses found</p>
+            <p className="text-cement mb-4">No godowns found</p>
             <Button className="bg-industrial hover:bg-industrial/90">
               <Plus className="h-4 w-4 mr-2" />
-              Add Your First Warehouse
+              Add Your First Godown
             </Button>
           </div>
         )}

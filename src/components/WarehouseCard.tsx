@@ -18,9 +18,6 @@ interface WarehouseCardProps {
 }
 
 export function WarehouseCard({ warehouse, onClick }: WarehouseCardProps) {
-  const utilizationPercent = Math.round((warehouse.totalBags / warehouse.capacity) * 100);
-  const isNearCapacity = utilizationPercent > 90;
-  const isLowStock = utilizationPercent < 20;
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -53,38 +50,18 @@ export function WarehouseCard({ warehouse, onClick }: WarehouseCardProps) {
         <CardDescription className="text-cement">{warehouse.location}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-1">
-            <div className="flex items-center gap-1">
-              <Package className="h-4 w-4 text-cement" />
-              <span className="text-sm font-medium text-cement">Total Bags</span>
-            </div>
-            <p className="text-2xl font-bold text-cement-dark">
-              {warehouse.totalBags.toLocaleString()}
-            </p>
+        <div className="space-y-1">
+          <div className="flex items-center gap-1">
+            <Package className="h-4 w-4 text-cement" />
+            <span className="text-sm font-medium text-cement">Total Bags</span>
           </div>
-          <div className="space-y-1">
-            <div className="flex items-center gap-1">
-              {isNearCapacity ? (
-                <TrendingUp className="h-4 w-4 text-destructive" />
-              ) : isLowStock ? (
-                <TrendingDown className="h-4 w-4 text-yellow-500" />
-              ) : (
-                <TrendingUp className="h-4 w-4 text-warehouse" />
-              )}
-              <span className="text-sm font-medium text-cement">Utilization</span>
-            </div>
-            <p className="text-2xl font-bold text-cement-dark">
-              {utilizationPercent}%
-            </p>
-          </div>
+          <p className="text-2xl font-bold text-cement-dark">
+            {warehouse.totalBags.toLocaleString()}
+          </p>
         </div>
         <div className="mt-4 pt-3 border-t border-cement-light">
           <p className="text-xs text-cement">
             Capacity: {warehouse.capacity.toLocaleString()} bags
-          </p>
-          <p className="text-xs text-cement">
-            Last updated: {warehouse.lastUpdated}
           </p>
         </div>
       </CardContent>
