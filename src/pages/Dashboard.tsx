@@ -7,13 +7,15 @@ interface DashboardProps {
   onWarehouseSelect: (id: string) => void;
   onLogout: () => void;
   currentUser: string;
+  userType?: "SuperUser" | "Admin" | "Godown Manager";
 }
 
 export default function Dashboard({ 
   warehouses, 
   onWarehouseSelect, 
   onLogout, 
-  currentUser 
+  currentUser,
+  userType = "SuperUser"
 }: DashboardProps) {
   return (
     <div className="min-h-screen bg-background">
@@ -26,6 +28,14 @@ export default function Dashboard({
                 Cement Inventory System
               </h1>
               <p className="text-cement">Welcome back, {currentUser}</p>
+              <div className="flex items-center gap-2 mt-1">
+                <span className="text-sm font-medium text-cement-dark">{userType}</span>
+                <span className="text-xs text-cement">
+                  {userType === "SuperUser" && "• Can do everything"}
+                  {userType === "Admin" && "• Can view everything"}
+                  {userType === "Godown Manager" && "• Can view and manage assigned godown"}
+                </span>
+              </div>
             </div>
             <div className="flex items-center gap-2">
               <Button variant="outline" size="sm">
