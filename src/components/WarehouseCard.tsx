@@ -59,11 +59,6 @@ export function WarehouseCard({ warehouse, onClick }: WarehouseCardProps) {
             {warehouse.totalBags.toLocaleString()}
           </p>
         </div>
-        <div className="mt-4 pt-3 border-t border-cement-light">
-          <p className="text-xs text-cement">
-            Capacity: {warehouse.capacity.toLocaleString()} bags
-          </p>
-        </div>
       </CardContent>
     </Card>
   );
